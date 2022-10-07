@@ -20,3 +20,22 @@ Types of automated tests
 3. E2E tests: Endtoend test Focus on testing the entire application Flow and ensureing it works properly from start to finish. It involves UI backed and takes longer to complete as the cover most amount of codes
 
 RTL stricks a balance between unit tests and E2E tests
+
+### Anatomy of a test Function
+
+test(name, fn, timeout)
+the first arg is the name used to identify the test
+the second arg is the fuction that contains expectations to the test.
+the third arg is optional which is an optional arg to specify how long to wait before aborting the test, default value is 5sec
+
+### Test Driven Development (TDD):
+
+Test driven development is a software development process where you write your test before writing software code.
+
+Once the tests have been written, you then write the code to ensure the tests pass.
+
+    1. Create tests that varify the functionalilty of a specific feature.
+    2. Write software code that will run successfully when re-executed.
+    3. refactor the code for optimsaization while ensuring the test contunis to pass.
+
+Also called red-green testing as all test goes from red failed state to a green passed state.

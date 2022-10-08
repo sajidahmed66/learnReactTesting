@@ -78,3 +78,38 @@ jest configuration to determine how much coverage is the minimun threshold
 
 also a new script for coverage is written in package.json file to run coverage report and which file to check and which not to check.
 coverage is good from CI/CD point of view.
+
+### Assertions
+
+When writing tests we often need to check that values meet certain conditions.
+
+Assertions decide whether a test passes or fails.
+
+With JEST Assertions are carried out by global **expect** method.
+
+    expect(value)
+    the argument should be the value that your code produces.
+    Typically you will use "expect" along with a matcher function to assert something about that value.
+
+    A Mather can optionally accept an argument that is correct expected value.
+
+What are the correct matcher functions>>>> https://jestjs.io/docs/using-matchers
+
+1.  commom matcher functions
+    1. truthiness
+    2. numbers
+    3. Strings
+    4. Array and Iterables
+    5. Exceptions
+2.  Also look into jest dom package that gives much more matcher functions to match dom node. also look into the setupTests.ts in the src folder that has been crated by create react app. this file is a global file that is executed before jest runs.
+
+### Section summary
+
+    jest watch mode with w,
+    filter tests (failed, all, by regx )
+    Grouping tests (describe)
+    Filename conventions
+    Code coverage and Generated code coverage report
+    Assertions.
+
+###

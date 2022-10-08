@@ -38,4 +38,43 @@ Once the tests have been written, you then write the code to ensure the tests pa
     2. Write software code that will run successfully when re-executed.
     3. refactor the code for optimsaization while ensuring the test contunis to pass.
 
-Also called red-green testing as all test goes from red failed state to a green passed state.
+Also called **red-green** testing as all test goes from red failed state to a green passed state.
+
+### Jest Watch mode
+
+Watch mode is an option that we can pass to Jest to watch files that have changed since the last commit and execute tests related only to those changed files.
+An optimaization designed to make your tests run fasrter regardless of how many tests you have .
+press w to bring out the menu and from there you can filter tests, find and run specific test and all tests.
+
+### Grouping tests
+
+describe(name, fn)
+the first argument is the group name.
+the second argument is a function that contains exceptations to the test.
+
+.only() and .skip() method can also be called on describe function.
+.only() run that test only in a test file if there are multiple tests and .skip() skips running that test
+it is also possiable to nest discribe block.
+And Multiple describe block can also stay in a test file
+
+### Fileneme Convention that CRA Follows
+
+CRA will look for 1. Files with .test.js or .test.tsx suffix 2. Files with .spec.js or .spec.tsx suffix 3. Files with .js or .tsx in "\_\_tests\_\_" folders
+
+but it is recmanded to put test code along side of the code to keep reative imports shorter
+
+additionally insted of test() it() can be used to as a global test function. for .only() use fit() and .skip() use xit to only run specific test and skip a test respectively
+
+### Code coverage
+
+A metric that can help you understand how much of your software code is tested .
+
+    1. **Satement Coverage**: how many of the statement in the software code have been executed.
+    2. **Branches Coverage**: How many branches of the control structures (if statement for instance ) have been executed.
+    3. **Function Coverage**: How many functions have been called
+    4. **Line Coverage**: How many lines of source code have been tested.
+
+jest configuration to determine how much coverage is the minimun threshold
+
+also a new script for coverage is written in package.json file to run coverage report and which file to check and which not to check.
+coverage is good from CI/CD point of view.

@@ -112,4 +112,78 @@ What are the correct matcher functions>>>> https://jestjs.io/docs/using-matchers
     Code coverage and Generated code coverage report
     Assertions.
 
-###
+### What to test in a react application?
+
+Test components renders.
+Test compoment correctly renders with props
+Test components renders in diffrent states
+Test component reacts to events correctly
+
+### What not to test in a react application.
+
+Implementation details.
+Thrid party codes.
+Code that is not important from a user point of view
+
+### RTL QUeries
+
+Every test that is written involves three basic steps.
+
+1. render the component
+2. find an element rendered by the component
+3. assert against the element found in step 2 wchich will pass or fail the test.
+
+To render the component, we use the render method from RTL.
+
+For assertion, we use expect passing in a value and combine it with a matcher function from jest or jest-dom.
+
+For finding elements we need the the React Testing libary Queries
+
+### What are RTL Queries
+
+Queries are the method that testing libary peovides to find elements on the page.
+there are sevaral methods that RTL provides
+
+to find an element on the page.
+
+    ==> getBy..
+    ==> queryBy..
+    ==> findBy..
+
+to find multiple elements on the page
+
+    ==> getAllBy..
+    ==> queryAllBy..
+    ==> findAllBy..
+
+they all need suffix and they can be like Role, LableText,Placeholder Text, Text,Alttext, DisplayValue,Title, and finally TestId
+
+## GetBy.. query
+
+getby... is a class of query that returns the matching node for a query, and throw a discriptive error if no element is matched or more than one element is matched.
+
+### GetByRole
+
+getByRole queries for elements with the givin role.
+
+Role refers to the ARIA role which provieds semantic meaning to content to ensure pepole using asistive technology are able to use them.
+
+By default many semantic elements in HTLM have a role.
+We can check that if these element with roles exits of not and test them
+basically finding if the element is in the dom or not.
+
+### getByRoleOptions
+
+name | level | hidden | selected | checked | pressed
+
+the accessible name is for simple cases equal to
+
+    1. The label of a form element.
+    2. Text content of a button.
+    3. The value of the aira-label attrubute.
+
+these are helpful when there are multiple elements with same role.
+
+### getByLabelText
+
+getBylebelText will search for the lable that matches the given text, then find elements associated with that label.

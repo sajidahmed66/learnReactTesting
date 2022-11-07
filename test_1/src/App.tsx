@@ -2,9 +2,14 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Greet from "./components/greet/Greet";
+import { Application } from "./components/application/application";
 
 function App() {
-  return <Greet />;
+  return (
+    <div className="App">
+      <Application />
+    </div>
+  );
 }
 
 export default App;

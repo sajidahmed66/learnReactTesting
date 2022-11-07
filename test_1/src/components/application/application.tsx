@@ -13,9 +13,9 @@ export const Application = () => {
           <input
             type="text"
             id="name"
-            //   placeholder="Fullname"
-            //   value="Vishwas"
-            //   onChange={() => {}}
+            placeholder="Fullname"
+            value="Mojid"
+            onChange={() => {}}
           />
         </div>
         <div>

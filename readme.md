@@ -180,10 +180,65 @@ the accessible name is for simple cases equal to
 
     1. The label of a form element.
     2. Text content of a button.
-    3. The value of the aira-label attrubute.
+    3. The value of the aira-label attribute.
 
 these are helpful when there are multiple elements with same role.
 
 ### getByLabelText
 
 getBylebelText will search for the lable that matches the given text, then find elements associated with that label.
+getBylabelText also works for wrapper elements
+i g
+
+    `
+    <label>
+        <input type="checkbox" id="terms" /> I agree to the terms and conditions
+    </label>
+    `
+
+### getByLabelText Options
+
+we can pass in a selecter in options to select the type of the label. this is helpful when there are multiple elements with same label.
+
+### getByPlaceHolderText
+
+getByPlaceHolderText will search for all the element with a placeholder attribute and find onet that matches that given text.
+
+### getByText
+
+getByText will search for all element with a text node with a textContent matching the given text
+
+Typically we will use this to find paragraph, div or span elements
+
+### getByDisplayValue
+
+getByDisplay value returns the input , textarea or select element that has the matching display value. typically we will use this in form control where we find element based on their values
+
+### getByAltText
+
+returns an element that matches the alt text attribute.
+
+### getByTitle
+
+getByTitle returns the element that has the matching title attribute.
+
+### getByTestId
+
+getByTestId returns the element that has the matching data-testId attribute.
+
+### Priority Order for Queries
+
+"Your test should resemble how users interact with your code (componentn page etc) as much as possiable" recommended order as follows
+
+1. getByRole( top referrence )
+2. getByLabelText(useful for form field)
+3. getByPlaceHolderText
+4. getBytext(find non interactive value)
+5. getByDisplayValue()
+6. getByAltText(ie image)
+7. getByTitle()
+8. getByTestId( if content is dynamic )
+
+## RTL getAllBy.. Queries
+
+to find multiple element in the dom node

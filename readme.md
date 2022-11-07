@@ -242,3 +242,41 @@ getByTestId returns the element that has the matching data-testId attribute.
 ## RTL getAllBy.. Queries
 
 to find multiple element in the dom node
+
+### TextMatch
+
+the first Arg that passed to RTL query is a type oF TextMatch.It can be either a
+
+    1. string
+    2. regex
+    3. function(content?: srting, element?: Element|null => boolean)
+
+## queryBy.. and QueryAllBy..
+
+1. Returns the matching node for a query , and return null if no element is found.
+2. Useful for asserting an element that is not present or renders conditionally.
+3. Throws an error if more that one element id found.
+
+### queryAllBy..
+
+1. Returns an array of all matching nodes for a query and returns an empty array if no elements match.
+2. All other suffix can be added to the query string
+
+## Appearance and Disappearance
+
+What if elements are not present in the DON to begin with but made their way into the DOM after some time.
+For example data that is fatched from a server will be rendered only after a few miliseconds.
+
+in these case findBy.. and findAllBy... are used
+
+### findBy.. and findAllBy...
+
+findBy
+
+      1. findBy returns a promise that resolves when an element is found which matches the given query.
+      2. the promise is rejected if no element is found or if more than one element is found after a default timeout of 1000ms.
+
+findAllBy..
+
+      1. findAllBy returns a promise that resolves to an array of elements when any element is found whixh match the given query.
+      2. The promise is rejected if no element is found after a default timeout of 1000ms.

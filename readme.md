@@ -278,5 +278,57 @@ findBy
 
 findAllBy..
 
-      1. findAllBy returns a promise that resolves to an array of elements when any element is found whixh match the given query.
+      1. findAllBy returns a promise that resolves to an array of elements when any element is found which match the given query.
       2. The promise is rejected if no element is found after a default timeout of 1000ms.
+
+## User Interactions and Events
+
+to test user interaction we use user-event library.
+user-event is a companion library for testting library that simulates user interactions by dispatching the events that would happen if the interaction took place in tha browser.
+This is the recomended way to test user interaction with the React testing library.
+
+### Pointer interactions (Mouse Interactions)
+
+user-events pointer interactions uses Convenience APIs
+thses are ..
+
+        click()
+        dblClick()
+        tripleClick()
+        hover()
+        unHover()
+
+there are some low-level Pointer Api such as
+
+1.  pointer({keys:'[MouseLeft]'}) // simulate a pointer click with mouse button left click
+2.  pointer({keys:'[MouseLeft][mouseright]'}) simulate a pointer click with mouse button left click followed by mouse button right click.
+3.  pointer({keys:'[MouseLeft>]'}) simulate a pointer click with mouse button left click and hold it down.
+4.  pointer({keys:'[/MouseLeft]'}) simulate releseing a priviously pressed button with mouse button left click
+
+### Keyboard interaction
+
+Convenience API user.tab()
+
+Utility Api
+type() --> typeing in a input field
+clear() --> clears keyboardInput
+selectOptions() --> select element
+deselectOptions() --> deselect selected option
+upload() --> upload a file to input
+
+Clipboard API
+copy()
+cut()
+paste()
+
+there is also keyboard Api for other cases
+
+## Testing Component with Provider.
+
+some time component need context provider to test component
+at render method , wrapper option can be passed to render function to test component with providers (theme, context m store etc);
+
+We can also set a single provider as wrapper option at top level so we can access it anywhere in testing.
+lik to doc https://testing-library.com/docs/react-testing-library/setup#custom-render
+
+## testing Custom hooks

@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { Skills } from "./skills";
+import user from "@testing-library/user-event";
 // grouping the test cases with describe function
 describe("Skills component", () => {
   const skills = ["HTML", "CSS", "CSS2", "CSS3", "fhajhkfhak"]; // fake data
@@ -30,17 +31,29 @@ describe("Skills component", () => {
     });
     expect(startLearningbtn).not.toBeInTheDocument();
   });
-  test("start learning button will eventually rendered ", async () => {
+  // test("start learning button will eventually rendered ", async () => {
+  //   render(<Skills skills={skills} />);
+  //   const startLearningbtn2 = await screen.findByRole(
+  //     "button",
+  //     {
+  //       name: "Start Learnig",
+  //     },
+  //     {
+  //       timeout: 2000,
+  //     }
+  //   );
+  //   expect(startLearningbtn2).toBeInTheDocument();
+  // });
+  test("start learning will render after button event", async () => {
+    user.setup();
     render(<Skills skills={skills} />);
-    const startLearningbtn2 = await screen.findByRole(
-      "button",
-      {
-        name: "Start Learnig",
-      },
-      {
-        timeout: 2000,
-      }
-    );
-    expect(startLearningbtn2).toBeInTheDocument();
+    const loginbtnElement = screen.getByRole("button", {
+      name: "Log In",
+    });
+    await user.click(loginbtnElement);
+    const startLearningbtn = screen.queryByRole("button", {
+      name: "Start Learnig",
+    });
+    expect(startLearningbtn).toBeInTheDocument();
   });
 });

@@ -304,6 +304,12 @@ can use regular queryselector dom api to find elements
     const {container} = render(<SomeComponent/>)
     const foo = container.querySelector(.foo)
 
+## Debugging the test results
+
+    helper functions to help with debugging
+    - screen.debug()
+    - logRoles(container) // to get the aira roles
+
 ## User Interactions and Events
 
 to test user interaction we use user-event library.

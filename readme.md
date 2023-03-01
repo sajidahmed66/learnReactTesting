@@ -243,6 +243,18 @@ getByTestId returns the element that has the matching data-testId attribute.
 
 to find multiple element in the dom node
 
+### RTL queries used so far (example)
+
+    const pageHeading = screen.getByRole("heading");
+    const nameElement2 = screen.getByLabelText("name");
+    const nameElement3 = screen.getByPlaceholderText("Fullname");
+    const paragraphElement = screen.getByText("All fields are mandatory");
+    const nameElement4 = screen.getByDisplayValue("name");
+    const imageElement = screen.getByAltText("image-alt-text");
+    const closeElement = screen.getByTitle("close")
+    const customeElement = screen.getByTestId("custome-test-id");
+    const listElements = screen.getAllByRole("listitems");
+
 ### TextMatch
 
 the first Arg that passed to RTL query is a type oF TextMatch.It can be either a
@@ -251,13 +263,17 @@ the first Arg that passed to RTL query is a type oF TextMatch.It can be either a
     2. regex
     3. function(content?: srting, element?: Element|null => boolean)
 
-## queryBy.. and QueryAllBy..
+doc link https://testing-library.com/docs/queries/about#textmatch
+
+## queryBy
+
+also a method to find a single element
 
 1. Returns the matching node for a query , and return null if no element is found.
 2. Useful for asserting an element that is not present or renders conditionally.
 3. Throws an error if more that one element id found.
 
-### queryAllBy..
+## queryAllBy..
 
 1. Returns an array of all matching nodes for a query and returns an empty array if no elements match.
 2. All other suffix can be added to the query string
@@ -269,17 +285,24 @@ For example data that is fatched from a server will be rendered only after a few
 
 in these case findBy.. and findAllBy... are used
 
-### findBy.. and findAllBy...
+## findBy.. and findAllBy...
 
-findBy
+### findBy
 
       1. findBy returns a promise that resolves when an element is found which matches the given query.
       2. the promise is rejected if no element is found or if more than one element is found after a default timeout of 1000ms.
 
-findAllBy..
+### findAllBy..
 
       1. findAllBy returns a promise that resolves to an array of elements when any element is found which match the given query.
       2. The promise is rejected if no element is found after a default timeout of 1000ms.
+
+## Manual queries
+
+can use regular queryselector dom api to find elements
+
+    const {container} = render(<SomeComponent/>)
+    const foo = container.querySelector(.foo)
 
 ## User Interactions and Events
 

@@ -5,6 +5,6 @@ describe("MuiMode", () => {
   test("renders text correctly", () => {
     render(<MuiMode />);
     const headingelement = screen.getByRole("heading");
-    expect(headingelement).toHaveTextContent("dark mode");
+    expect(headingelement).toHaveTextContent("light mode");
   });
 });

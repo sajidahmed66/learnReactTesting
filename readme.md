@@ -361,3 +361,7 @@ We can also set a single provider as wrapper option at top level so we can acces
 lik to doc https://testing-library.com/docs/react-testing-library/setup#custom-render
 
 ## testing Custom hooks
+
+we renderhook insted of render.
+rederhook returns a object with properties result.
+The return values of the hooks containd inside an object result.current .

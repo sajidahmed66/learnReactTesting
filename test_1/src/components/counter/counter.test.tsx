@@ -3,32 +3,20 @@ import { Counter } from "./counter";
 import user from "@testing-library/user-event";
 
 describe("counter conponent tests ", () => {
-  test("component renders correctly", () => {
+  test("the counter component is rendering correctly", () => {
     render(<Counter />);
-    const countElement = screen.getByRole("heading");
-    expect(countElement).toBeInTheDocument();
-    const btnElement = screen.getByRole("button", {
-      name: "Increment",
-    });
-
-    expect(btnElement).toBeInTheDocument();
+    const countelement = screen.getByRole("heading");
+    expect(countelement).toBeInTheDocument();
   });
-  test("renders a count of zero", () => {
-    render(<Counter />);
-    const countElement = screen.getByRole("heading");
-    expect(countElement).toHaveTextContent("0");
-  });
-
-  //testing user interaction
-  test("renders a count of one after clicking the count button", async () => {
+  test("renders the count of one after clicking the incerement button", async () => {
     user.setup();
     render(<Counter />);
-    const btnElement = screen.getByRole("button", {
+    const incrementBtn = screen.getByRole("button", {
       name: "Increment",
     });
-    await user.click(btnElement);
-    const countElement = screen.getByRole("heading");
-    expect(countElement).toHaveTextContent("1");
+    await user.click(incrementBtn);
+    const countelement = screen.getByRole("heading");
+    expect(countelement).toHaveTextContent("1");
   });
   test("renders a count of two after clicking the count btn twice", async () => {
     user.setup();
@@ -36,12 +24,10 @@ describe("counter conponent tests ", () => {
     const btnElement = screen.getByRole("button", {
       name: "Increment",
     });
-    await user.click(btnElement);
-    await user.click(btnElement);
+    await user.dblClick(btnElement);
     const countElement = screen.getByRole("heading");
     expect(countElement).toHaveTextContent("2");
   });
-
   test("renders a count of ten after clicking the set button", async () => {
     user.setup();
     render(<Counter />);
